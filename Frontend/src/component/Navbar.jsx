@@ -110,11 +110,25 @@ function Navbar() {
                                 Home
                             </Button>
                             <Button
+                                href="/ProfilePage"
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                Dashboard
+                            </Button>
+                            <Button
                                 href="/createproject"
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 Create Project
+                            </Button>
+                            <Button
+                                href="/project"
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                Projects
                             </Button>
                         </Box>
                         {

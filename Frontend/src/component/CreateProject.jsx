@@ -52,7 +52,7 @@ const CreateProject = () => {
         <>
             <h1
                 className="text-center my-4 align-items-center"
-                style={{ color: "black", paddingTop: "5vh", marginLeft: "40rem" }}
+                style={{ color: "black", paddingTop: "5vh", textAlign:"center" }}
             >
                 Create Project
             </h1>
