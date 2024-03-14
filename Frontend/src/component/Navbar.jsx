@@ -133,7 +133,7 @@ function Navbar() {
                 </Container>
             </AppBar>
 
-            );
+            
         </>
     );
 }
