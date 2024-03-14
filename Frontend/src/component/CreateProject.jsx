@@ -4,9 +4,12 @@ import {
     FormGroup,
     TextField,
     Button,
+    FormControl,
+    styled,
 } from "@mui/material";
 import { useAuth } from '../contexts'
 import { Navigate, useNavigate } from "react-router-dom";
+
 const CreateProject = () => {
     const [credentials, setCredentials] = useState({ name: "", details: "" });
     const navi = useNavigate();
@@ -15,7 +18,14 @@ const CreateProject = () => {
         setCredentials({ ...credentials, [id]: value });
     };
 
-    const {currentUser}=useAuth()
+    const Inputfield = styled(FormControl)`
+        margin: auto;
+        width: 70vh;
+        margin-bottom: 2vh;
+        color: white;
+    `;
+
+    const { currentUser } = useAuth()
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -26,7 +36,7 @@ const CreateProject = () => {
                 projdesc: credentials.details,
             });
             console.log("Project added successfully!");
-          navi('/');
+            navi('/');
             // Optionally, you can redirect the user to another page after successful submission
         } catch (error) {
             console.error("Error adding project:", error);
@@ -41,7 +51,7 @@ const CreateProject = () => {
             >
                 Create Project
             </h1>
-            <form style={{ margin: "auto" }} onSubmit={handleSubmit}>
+            <form style={{ margin: "auto", textAlign: "center" }} onSubmit={handleSubmit}>
                 <TextField
                     id="name"
                     label="Name"
@@ -50,6 +60,7 @@ const CreateProject = () => {
                     onChange={handleChange}
                     style={{ marginBottom: "2rem" }}
                 />
+                <br />
                 <TextField
                     id="details"
                     label="Details"
@@ -58,6 +69,7 @@ const CreateProject = () => {
                     onChange={handleChange}
                     style={{ marginBottom: "2rem" }}
                 />
+                <br />
                 <Button type="submit" variant="contained" color="primary">
                     Submit
                 </Button>
