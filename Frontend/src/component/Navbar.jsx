@@ -42,24 +42,9 @@ function Navbar() {
         setAnchorElUser(null);
     };
 
-  return (
-    <>
-    <nav className='flex flex-row gap-x-2 w-full z-20 fixed top-0 left-0 h-12 border-b place-content-center items-center bg-gray-200'>
-            {
-                userLoggedIn
-                    ?
-                    <>
-                        <button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} className='text-sm text-blue-600 underline'>Logout</button>
-                    </>
-                    :
-                    <>
-                        <Link className='text-sm text-blue-600 underline' to={'/login'}>Login</Link>
-                        <Link className='text-sm text-blue-600 underline' to={'/regz'}>Register New Account</Link>
-                    </>
-            }
-
-            </nav>
-            <AppBar position="static" style={{backgroundColor: "#111c34"}}>
+    return (
+        <>
+            <AppBar position="static" style={{ backgroundColor: "#111c34" }}>
                 <Container maxWidth="xl" >
                     <Toolbar disableGutters>
                         <img src="./mainlogo.png" alt="Logo" style={{ width: "12rem", height: "2rem", justifyContent: "space-between", marginBottom: "-50px", paddingRight: "2rem", marginTop: "-50px", marginLeft: "0px" }} />
