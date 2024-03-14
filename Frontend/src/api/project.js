@@ -1,7 +1,7 @@
 const { collection, addDoc, setDoc, getDoc, updateDoc } = require("firebase/firestore");
 const { db } = require("../firebase/firebase");
 import { useAuth } from '../contexts'
-const addProject = async ({ projName, projdesc }) => {
+export const addProject = async ({ projName, projdesc }) => {
     const { currentUser } = useAuth();
     try {
         const docRef = await addDoc(collection(db, "user-projects"), {
@@ -16,7 +16,7 @@ const addProject = async ({ projName, projdesc }) => {
     //await setDoc(doc(db, "user-projects"), docRef);
 };
 
-const getProject = async () => {
+export const getProject = async () => {
     const docRef = doc(db, "user-projects");
     const docSnap = await getDoc(docRef);
 
@@ -28,7 +28,7 @@ const getProject = async () => {
     }
 }
 
-const updateProject = async ({ projName, projdesc }) => {
+export const updateProject = async ({ projName, projdesc }) => {
     const { currentUser } = useAuth();
     try {
         const docRef = await updateDoc(collection(db, "user-projects"), {

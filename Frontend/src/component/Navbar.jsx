@@ -123,8 +123,26 @@ function Navbar() {
                             >
                                 Create Project
                             </Button>
+                            <Button
+                                href="/project"
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                Projects
+                            </Button>
                         </Box>
+                        {
+                userLoggedIn
+                    ?
+                    <>
+                        <Button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Logout</Button>
+                    </>
+                    :
+                    <>
                         <Button href="/reg" style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Sign Up/Sign In</Button>
+                    </>
+            }
+                        
                     </Toolbar>
                 </Container>
             </AppBar>
