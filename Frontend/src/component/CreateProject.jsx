@@ -29,6 +29,7 @@ import {
     DialogActions,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import { addProject } from "../api/project";
 
 const Inputfield = styled(FormControl)`
   margin: auto;
@@ -38,7 +39,14 @@ const Inputfield = styled(FormControl)`
 `;
 
 const CreateProject = () => {
-
+    const [form,setform]=useState(false)
+    const handleSubmit = ()=>{
+        setform(true)
+    }
+    const onSubmit = async (e) => {
+        e.preventDefault()
+        
+    }
     return (
         <>
             <h1
@@ -47,7 +55,7 @@ const CreateProject = () => {
             >
                 Create Project
             </h1>
-            <FormGroup style={{ margin: "auto" }}>
+            <FormGroup style={{ margin: "auto" }} onSubmit={handleSubmit}>
                 <Inputfield style={{marginBottom: "2rem"}}>
                     <TextField id="standard-basic" label="Name" variant="standard" />
                 </Inputfield>
