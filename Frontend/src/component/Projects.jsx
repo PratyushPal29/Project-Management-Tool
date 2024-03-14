@@ -35,7 +35,7 @@ export default function Project() {
                 <h1>Projects</h1>
             </div>
             <div className="container">
-                <div className="container row" style={{display: "flex"}}>
+                <div className="container row" style={{display: "flex", flexWrap: "wrap"}}>
                     {projects?.map((project, index) => (
                         <div className="col-md-3 mb-3">
                             <Card key={index} sx={{ maxWidth: 345, borderRadius: '20px', border: '2px solid teal', margin: '2vh' }}>
