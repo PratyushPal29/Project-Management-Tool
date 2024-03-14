@@ -121,6 +121,7 @@ const Register = () => {
                     </form>
                 </div>
             </main> */}
+            {userLoggedIn && (<Navigate to={'/'} replace={true} />)}
             <Card
                 sx={{ maxWidth: "40vw", margin: "70px auto", borderRadius: "50px" }}
             >
