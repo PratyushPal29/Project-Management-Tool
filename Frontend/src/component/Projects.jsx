@@ -39,7 +39,7 @@ export default function Project() {
                     {projects?.map((project, index) => (
                        
                         <div className="col-md-3 mb-3">
-                            <Card key={index} sx={{ maxWidth: 345, height: "12rem", borderRadius: '20px', border: '2px solid teal', margin: '2vh' }}>
+                            <Card key={index} sx={{ width: "20rem", height: "12rem", borderRadius: '20px', border: '2px solid teal', margin: '2vh' }}>
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="div">
                                         {project.projName}
