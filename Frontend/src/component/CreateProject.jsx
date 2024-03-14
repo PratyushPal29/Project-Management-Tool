@@ -29,7 +29,7 @@ import {
     DialogActions,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { addProject } from "../api/project";
+
 
 const Inputfield = styled(FormControl)`
   margin: auto;
@@ -54,7 +54,7 @@ const CreateProject = () => {
         <div style={{width: "100%", height: "100vh"}}>
             <h1
                 className="text-center my-4 align-items-center"
-                style={{ color: "black", paddingTop: "5vh", marginLeft: "40rem" }}
+                style={{ color: "black", paddingTop: "5vh", textAlign:"center" }}
             >
                 Create Project
             </h1>

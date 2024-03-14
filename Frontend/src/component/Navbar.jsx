@@ -110,6 +110,13 @@ function Navbar() {
                                 Home
                             </Button>
                             <Button
+                                href="/ProfilePage"
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                Dashboard
+                            </Button>
+                            <Button
                                 href="/createproject"
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -140,7 +147,7 @@ function Navbar() {
                 </Container>
             </AppBar>
 
-            );
+            
         </>
     );
 }
