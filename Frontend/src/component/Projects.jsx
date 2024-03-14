@@ -25,30 +25,34 @@ export default function Project() {
     }, []);
 
     return (
-        <div style={{ textAlign: 'center', width: '100%', height: '100vh', margin: 'auto' }}>
+        <div style={{ textAlign: 'center',height: "100vh", width: '100%', margin: 'auto' }}>
             <div>
                 <h1>Projects</h1>
             </div>
-            <div style={{ display: 'flex', margin: 'auto' }}>
-                {projects?.map((project, index) => (
-                    <Card key={index} sx={{ maxWidth: 345, borderRadius: '20px', border: '2px solid teal', margin: '2vh' }}>
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                {project.projName}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary" justifyContent="space-between">
-                                {project.projdesc}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button style={{ borderRadius: '20px', backgroundColor: 'teal', marginLeft: '4rem' }}>
-                                <Link to={`/projdetails/${project.id}`} style={{ textDecoration: 'none', color: 'white' }}>
-                                    Open
-                                </Link>
-                            </Button>
-                        </CardActions>
-                    </Card>
-                ))}
+            <div className="container">
+                <div className="container row" style={{display: "flex"}}>
+                    {projects?.map((project, index) => (
+                        <div className="col-md-3 mb-3">
+                            <Card key={index} sx={{ maxWidth: 345, borderRadius: '20px', border: '2px solid teal', margin: '2vh' }}>
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="div">
+                                        {project.projName}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary" justifyContent="space-between">
+                                        {project.projdesc}
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <Button style={{ borderRadius: '20px', backgroundColor: 'teal', marginLeft: '4rem' }}>
+                                        <Link to={`/projdetails/${project.id}`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            Open
+                                        </Link>
+                                    </Button>
+                                </CardActions>
+                            </Card>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

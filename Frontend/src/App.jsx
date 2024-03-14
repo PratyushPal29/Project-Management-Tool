@@ -4,6 +4,7 @@ import Home from "./component/Home";
 import Navbar from "./component/Navbar";
 import ProfilePage from "./component/ProfilePage";
 import ProjDetails from "./component/ProjectDetails";
+import ProjectSidebar from "./component/Project_Sidebar";
 import Project from "./component/Projects";
 import Login from "./component/auth/login";
 import Register from "./component/auth/register";
