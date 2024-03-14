@@ -9,17 +9,17 @@ import { getProject } from '../api/project'; // Update this path to your API fil
 import { useAuth } from '../contexts'
 export default function Project() {
     const [projects, setProjects] = useState([]);
-    const {currentUser}=useAuth()
+    const { currentUser } = useAuth()
     useEffect(() => {
         const fetchUserProjects = async () => {
             try {
                 // Fetch all projects
                 const allProjects = await getProject();
-                
-                const userProjects = allProjects.filter(project => project.id === currentUser.uid); 
-                
+
+                const userProjects = allProjects.filter(project => project.id === currentUser.uid);
+
                 setProjects(userProjects);
-              // console.log(userProjects)
+                // console.log(userProjects)
             } catch (error) {
                 console.error('Error fetching user projects:', error);
             }
@@ -28,16 +28,16 @@ export default function Project() {
         if (currentUser) {
             fetchUserProjects();
         }
-    }, [currentUser]); 
+    }, [currentUser]);
     return (
-        <div style={{ textAlign: 'center',height: "100vh", width: '100%', margin: 'auto' }}>
+        <div style={{ textAlign: 'center', height: "100vh", width: '100%', margin: 'auto' }}>
             <div>
                 <h1>Projects</h1>
             </div>
             <div className="container">
-                <div className="container row" style={{display: "flex", flexWrap: "wrap"}}>
+                <div className="container row" style={{ display: "flex", flexWrap: "wrap" }}>
                     {projects?.map((project, index) => (
-                       
+
                         <div className="col-md-3 mb-3">
                             <Card key={index} sx={{ width: "20rem", height: "12rem", borderRadius: '20px', border: '2px solid teal', margin: '2vh' }}>
                                 <CardContent>
@@ -45,12 +45,12 @@ export default function Project() {
                                         {project.projName}
                                     </Typography>
                                     <Typography variant="body2" color="text.secondary" justifyContent="space-between">
-                                        {project.projdesc}
+                                        {project.projDesc}
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                  
-                                    <Button style={{ borderRadius: '20px', backgroundColor: 'teal', marginLeft: '4rem' }}>
+
+                                    <Button style={{ borderRadius: '20px', backgroundColor: 'teal',display: "flex", margin: "auto" }}>
                                         <Link to={`/projdetails/${project.id}`} style={{ textDecoration: 'none', color: 'white' }}>
                                             Open
                                         </Link>
@@ -58,7 +58,7 @@ export default function Project() {
                                 </CardActions>
                             </Card>
                         </div>
-                        
+
                     ))}
                 </div>
             </div>
