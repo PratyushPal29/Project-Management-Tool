@@ -1,6 +1,7 @@
 body {
-    margin: 0;
-    background: linear-gradient(172deg, teal, #489cab);
+  
+    margin:0 ;
+    background: linear-gradient(172deg, #6644ff 50%, #ff99dd 300%);
     font-family: "Euclid Circular A", "Poppins";
     color: #f7f7f7;
     position:fixed;

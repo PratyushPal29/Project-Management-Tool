@@ -3,6 +3,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 
 const Footer = () => {
   return (
+    
     <Box
     sx={{
         width: "100%",
@@ -28,6 +29,7 @@ const Footer = () => {
         </Grid>
       </Container>
     </Box>
+    
   );
 };
 

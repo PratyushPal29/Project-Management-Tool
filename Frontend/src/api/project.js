@@ -1,11 +1,11 @@
-const { collection, addDoc, setDoc, getDoc, updateDoc } = require("firebase/firestore");
+const { collection, addDoc, setDoc, getDoc, updateDoc,doc } = require("firebase/firestore");
 const { db } = require("../firebase/firebase");
-import { useAuth } from '../contexts'
-export const addProject = async ({ projName, projdesc }) => {
-    const { currentUser } = useAuth();
+
+export const addProject = async ({username, projName, projdesc }) => {
+    
     try {
         const docRef = await addDoc(collection(db, "user-projects"), {
-            user: currentUser.displayName,
+            user: username,
             projName: projName,
             projdesc: projdesc
         });
@@ -28,11 +28,11 @@ export const getProject = async () => {
     }
 }
 
-export const updateProject = async ({ projName, projdesc }) => {
-    const { currentUser } = useAuth();
+export const updateProject = async ({username, projName, projdesc }) => {
+    
     try {
         const docRef = await updateDoc(collection(db, "user-projects"), {
-            user: currentUser.displayName,
+            user: username,
             projName: projName,
             projdesc: projdesc
         });
