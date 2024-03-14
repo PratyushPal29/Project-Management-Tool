@@ -12,20 +12,24 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-export const addProject = async ({userid,username, projName, projdesc }) => {
-    
+export const addProject = async ({ userId, username, projName, projDesc }) => {
     try {
         const docRef = await addDoc(collection(db, "user-projects"), {
-            id: userid,
+            
+            id: userId,
             user: username,
             projName: projName,
-            projdesc: projdesc
+            projDesc: projDesc
         });
+        
+        // console.log("Document written with ID: ", docRef.id);
+       
     } catch (e) {
         console.error("Error adding document: ", e);
+        return null; // Return null if there's an error
     }
-    //await setDoc(doc(db, "user-projects"), docRef);
 };
+
 
 export const getProject = async () => {
     const projectCollectionRef = collection(db, "user-projects");
@@ -50,10 +54,11 @@ export const getProjectById = async (projectId) => {
             return null;
         }
     } catch (error) {
-        console.error('Error fetching project:', error);
+        console.error('Error fetching project:', error.message);
         throw error;
     }
 };
+
 export const updateProject = async ({username, projName, projdesc }) => {
     
     try {

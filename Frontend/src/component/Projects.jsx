@@ -16,10 +16,10 @@ export default function Project() {
                 // Fetch all projects
                 const allProjects = await getProject();
                 
-                const userProjects = allProjects.filter(project => project.id === currentUser.uid); // Assuming user ID is stored in 
-
+                const userProjects = allProjects.filter(project => project.id === currentUser.uid); 
+                
                 setProjects(userProjects);
-                console.log('User projects fetched!');
+               
             } catch (error) {
                 console.error('Error fetching user projects:', error);
             }
@@ -37,6 +37,7 @@ export default function Project() {
             <div className="container">
                 <div className="container row" style={{display: "flex"}}>
                     {projects?.map((project, index) => (
+                       
                         <div className="col-md-3 mb-3">
                             <Card key={index} sx={{ maxWidth: 345, borderRadius: '20px', border: '2px solid teal', margin: '2vh' }}>
                                 <CardContent>
@@ -49,13 +50,14 @@ export default function Project() {
                                 </CardContent>
                                 <CardActions>
                                     <Button style={{ borderRadius: '20px', backgroundColor: 'teal', marginLeft: '4rem' }}>
-                                        <Link to={`/projdetails/${project.id}`} style={{ textDecoration: 'none', color: 'white' }}>
+                                        <Link to={`/projdetails/${project.projid}`} style={{ textDecoration: 'none', color: 'white' }}>
                                             Open
                                         </Link>
                                     </Button>
                                 </CardActions>
                             </Card>
                         </div>
+                        
                     ))}
                 </div>
             </div>
