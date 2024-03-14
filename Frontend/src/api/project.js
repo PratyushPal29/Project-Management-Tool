@@ -12,10 +12,11 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-export const addProject = async ({username, projName, projdesc }) => {
+export const addProject = async ({userid,username, projName, projdesc }) => {
     
     try {
         const docRef = await addDoc(collection(db, "user-projects"), {
+            id: userid,
             user: username,
             projName: projName,
             projdesc: projdesc

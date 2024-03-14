@@ -6,24 +6,29 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { getProject } from '../api/project'; // Update this path to your API file
-
+import { useAuth } from '../contexts'
 export default function Project() {
     const [projects, setProjects] = useState([]);
-
+    const {currentUser}=useAuth()
     useEffect(() => {
-        const fetchProjects = async () => {
+        const fetchUserProjects = async () => {
             try {
-                const projectData = await getProject();
-                setProjects(projectData);
-                console.log('Fetched!');
+                // Fetch all projects
+                const allProjects = await getProject();
+                
+                const userProjects = allProjects.filter(project => project.id === currentUser.uid); // Assuming user ID is stored in 
+
+                setProjects(userProjects);
+                console.log('User projects fetched!');
             } catch (error) {
-                console.error('Error fetching projects:', error);
+                console.error('Error fetching user projects:', error);
             }
         };
 
-        fetchProjects();
-    }, []);
-
+        if (currentUser) {
+            fetchUserProjects();
+        }
+    }, [currentUser]); 
     return (
         <div style={{ textAlign: 'center',height: "100vh", width: '100%', margin: 'auto' }}>
             <div>
