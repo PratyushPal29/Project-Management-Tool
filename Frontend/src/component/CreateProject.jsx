@@ -5,24 +5,28 @@ import {
     TextField,
     Button,
 } from "@mui/material";
-
+import { useAuth } from '../contexts'
+import { Navigate, useNavigate } from "react-router-dom";
 const CreateProject = () => {
     const [credentials, setCredentials] = useState({ name: "", details: "" });
-
+    const navi = useNavigate();
     const handleChange = (e) => {
         const { id, value } = e.target;
         setCredentials({ ...credentials, [id]: value });
     };
 
+    const {currentUser}=useAuth()
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await addProject({
-                username: "username", // Provide the username here
+                userid: currentUser.uid,
+                username: currentUser.displayName, // Provide the username here
                 projName: credentials.name,
                 projdesc: credentials.details,
             });
             console.log("Project added successfully!");
+          navi('/');
             // Optionally, you can redirect the user to another page after successful submission
         } catch (error) {
             console.error("Error adding project:", error);
