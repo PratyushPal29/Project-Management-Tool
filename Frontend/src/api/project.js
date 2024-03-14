@@ -1,4 +1,4 @@
-const { collection, addDoc, setDoc, getDocs, updateDoc,doc } = require("firebase/firestore");
+const { collection, addDoc, setDoc, getDocs, updateDoc,doc,getDoc } = require("firebase/firestore");
 const { initializeApp } = require("firebase/app");
 const { getFirestore } =require("firebase/firestore");
 const firebaseConfig = {
@@ -38,7 +38,22 @@ export const getProject = async () => {
 
     return projects;
 }
+export const getProjectById = async (projectId) => {
+    try {
+        const docRef = doc(db, 'user-projects', projectId);
+        const docSnap = await getDoc(docRef);
 
+        if (docSnap.exists()) {
+            return { id: docSnap.id, ...docSnap.data() };
+        } else {
+            console.log('No such project with id:', projectId);
+            return null;
+        }
+    } catch (error) {
+        console.error('Error fetching project:', error);
+        throw error;
+    }
+};
 export const updateProject = async ({username, projName, projdesc }) => {
     
     try {
