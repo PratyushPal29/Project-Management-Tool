@@ -3,10 +3,12 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 
 const Footer = () => {
   return (
+    
     <Box
     sx={{
         width: "100%",
         height: "auto",
+        
         backgroundColor: "secondary.main",
         paddingTop: "1rem",
         paddingBottom: "1rem",
@@ -27,6 +29,7 @@ const Footer = () => {
         </Grid>
       </Container>
     </Box>
+    
   );
 };
 
