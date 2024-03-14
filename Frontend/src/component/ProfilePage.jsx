@@ -29,7 +29,7 @@ import { Link } from 'react-router-dom';
 export default function ProfilePage() {
   const { currentUser } = useAuth();
   console.log(currentUser)
-  const url = currentUser.photoURL
+  const url = currentUser && currentUser.photoURL ? currentUser.photoURL:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNK4d0igyhvVVsYW2LIAn45LUbcWZpewEerQ&usqp=CAU';
   return (
     <section style={{ backgroundColor: '#8fd9bf', borderRadius: "50px", width: "90%", margin: "5rem" }}>
       <MDBContainer className="py-5">
@@ -46,7 +46,7 @@ export default function ProfilePage() {
             <MDBCard className="mb-4">
               <MDBCardBody className="center" style={{  }}>
                 <MDBCardImage
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNK4d0igyhvVVsYW2LIAn45LUbcWZpewEerQ&usqp=CAU"
+                  src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNK4d0igyhvVVsYW2LIAn45LUbcWZpewEerQ&usqp=CAU'
                   alt="avatar"
                   className="rounded-circle"
                   style={{ width: '250px', height: "250px", justifyContent: "center", borderRadius: "350px", marginTop: "2rem",marginLeft: "35rem", marginBottom: "2rem" }}
