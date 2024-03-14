@@ -41,15 +41,17 @@ const Inputfield = styled(FormControl)`
 const CreateProject = () => {
     //projName,projdesc
     const [form,setform]=useState(false)
+    const [credentials,setCredentials] = useState({name: "", descriptions: ""})
     const handleSubmit = ()=>{
         setform(true)
     }
     const onSubmit = async (e) => {
         e.preventDefault()
+        setCredentials({...credentials, [e.target.label]:[e.target.value]})
         
     }
     return (
-        <>
+        <div style={{width: "100%", height: "100vh"}}>
             <h1
                 className="text-center my-4 align-items-center"
                 style={{ color: "black", paddingTop: "5vh", marginLeft: "40rem" }}
@@ -66,7 +68,7 @@ const CreateProject = () => {
                 
                 <Button>Submit</Button>
             </FormGroup >
-        </>
+        </div>
 
     )
 }
