@@ -37,7 +37,7 @@ const CreateProject = () => {
             >
                 Create Project
             </h1>
-            <FormGroup style={{ margin: "auto" }} onSubmit={handleSubmit}>
+            <form style={{ margin: "auto" }} onSubmit={handleSubmit}>
                 <TextField
                     id="name"
                     label="Name"
@@ -57,7 +57,7 @@ const CreateProject = () => {
                 <Button type="submit" variant="contained" color="primary">
                     Submit
                 </Button>
-            </FormGroup>
+            </form>
         </div>
     );
 };
