@@ -15,7 +15,7 @@ const db = getFirestore(app);
 export const addProject = async ({username, projName, projdesc }) => {
     
     try {
-        const docRef = await setDoc(collection(db, "user-projects"), {
+        const docRef = await addDoc(collection(db, "user-projects"), {
             user: username,
             projName: projName,
             projdesc: projdesc
