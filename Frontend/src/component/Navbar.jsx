@@ -44,7 +44,7 @@ function Navbar() {
 
     return (
         <>
-            <AppBar position="static" style={{ backgroundColor: "#111c34" }}>
+            <AppBar position="static" style={{ backgroundColor: "#111c34", height: "5rem" }}>
                 <Container maxWidth="xl" >
                     <Toolbar disableGutters>
                         <img src="./mainlogo.png" alt="Logo" style={{ width: "12rem", height: "2rem", justifyContent: "space-between", marginBottom: "-50px", paddingRight: "2rem", marginTop: "-50px", marginLeft: "0px" }} />
