@@ -2,6 +2,7 @@ import CreateProject from "./component/CreateProject";
 import Footer from "./component/Footer/Footer";
 import Home from "./component/Home";
 import Navbar from "./component/Navbar";
+import ProfilePage from "./component/ProfilePage";
 import Login from "./component/auth/login";
 import Register from "./component/auth/register";
 import { AuthProvider } from "./contexts";
@@ -17,6 +18,7 @@ function App() {
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/reg' element={<Register />} />
           <Route exact path='/createproject' element={<CreateProject />} />
+          <Route exact path='/profilepage' element={<ProfilePage/>}/>
         </Routes>
         <Footer />
       </Router>

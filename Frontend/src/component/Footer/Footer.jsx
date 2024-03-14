@@ -7,20 +7,21 @@ const Footer = () => {
     sx={{
         width: "100%",
         height: "auto",
-        backgroundColor: "secondary.main",
+        backgroundImage: "linear-gradient(teal, #111c34)",
         paddingTop: "1rem",
         paddingBottom: "1rem",
+       
       }}
     >
       <Container>
         <Grid container direction="column" alignItems="center">
           <Grid item xs={12}>
-            <Typography color="black" variant="h5">
+            <Typography  style={{color:"white"}} variant="h5">
               React Starter App
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography color="textSecondary" variant="subtitle1">
+            <Typography color="white" variant="subtitle1">
               {`${new Date().getFullYear()} | React | Material UI | React Router`}
             </Typography>
           </Grid>
