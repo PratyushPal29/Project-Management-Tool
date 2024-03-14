@@ -18,12 +18,12 @@ export default function MediaCard() {
                     <Typography gutterBottom variant="h5" component="div">
                         Name
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" justifyContent='space-between'>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque quam officia porro quidem cum obcaecati velit corrupti repellat nostrum dolores nisi temporibus nobis illo, alias a. Libero esse minima distinctio?
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button style={{ borderRadius: "20px", border: "2px solid", backgroundColor: "" }}><Link style={{ textDecoration: "none" }}>Open</Link></Button>
+                    <Button style={{ borderRadius: "20px", backgroundColor: "teal" }}><Link style={{ textDecoration: "none", color: "white" }}>Open</Link></Button>
                 </CardActions>
             </Card>
         </div>
