@@ -15,7 +15,7 @@ export default function Project() {
             try {
                 const projectData = await getProject();
                 setProjects(projectData);
-                console.log('Fetched!', error);
+                console.log('Fetched!');
             } catch (error) {
                 console.error('Error fetching projects:', error);
             }
@@ -30,7 +30,7 @@ export default function Project() {
                 <h1>Projects</h1>
             </div>
             <div style={{ display: 'flex', margin: 'auto' }}>
-                {projects.map((project, index) => (
+                {projects?.map((project, index) => (
                     <Card key={index} sx={{ maxWidth: 345, borderRadius: '20px', border: '2px solid teal', margin: '2vh' }}>
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">

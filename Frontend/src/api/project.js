@@ -1,4 +1,4 @@
-const { collection, addDoc, setDoc, getDoc, updateDoc,doc } = require("firebase/firestore");
+const { collection, addDoc, setDoc, getDocs, updateDoc,doc } = require("firebase/firestore");
 const { initializeApp } = require("firebase/app");
 const { getFirestore } =require("firebase/firestore");
 const firebaseConfig = {
@@ -28,15 +28,15 @@ export const addProject = async ({username, projName, projdesc }) => {
 };
 
 export const getProject = async () => {
-    const docRef = doc(db, "user-projects");
-    const docSnap = await getDoc(docRef);
+    const projectCollectionRef = collection(db, "user-projects");
+    const querySnapshot = await getDocs(projectCollectionRef);
+    const projects = [];
+    
+    querySnapshot.forEach((doc) => {
+        projects.push({ id: doc.id, ...doc.data() });
+    });
 
-    if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-    } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
-    }
+    return projects;
 }
 
 export const updateProject = async ({username, projName, projdesc }) => {
