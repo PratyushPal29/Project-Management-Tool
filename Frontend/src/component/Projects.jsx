@@ -41,7 +41,7 @@ export default function Project() {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button style={{ borderRadius: '20px', backgroundColor: 'teal', marginLeft: '8rem' }}>
+                            <Button style={{ borderRadius: '20px', backgroundColor: 'teal', marginLeft: '4rem' }}>
                                 <Link to={`/projdetails/${project.id}`} style={{ textDecoration: 'none', color: 'white' }}>
                                     Open
                                 </Link>
