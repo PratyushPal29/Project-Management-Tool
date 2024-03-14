@@ -12,11 +12,16 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts'
+import { doSignOut } from '../firebase/auth'
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
+  const navigate = useNavigate()
+    const { userLoggedIn } = useAuth()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -36,6 +41,22 @@ function Navbar() {
   };
 
   return (
+    <>
+    <nav className='flex flex-row gap-x-2 w-full z-20 fixed top-0 left-0 h-12 border-b place-content-center items-center bg-gray-200'>
+            {
+                userLoggedIn
+                    ?
+                    <>
+                        <button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} className='text-sm text-blue-600 underline'>Logout</button>
+                    </>
+                    :
+                    <>
+                        <Link className='text-sm text-blue-600 underline' to={'/login'}>Login</Link>
+                        <Link className='text-sm text-blue-600 underline' to={'/register'}>Register New Account</Link>
+                    </>
+            }
+
+        </nav>
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -157,6 +178,7 @@ function Navbar() {
         </Toolbar>
       </Container>
     </AppBar>
+    </>
   );
 }
 export default Navbar;
