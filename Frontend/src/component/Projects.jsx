@@ -5,10 +5,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
 export default function MediaCard() {
     return (
-        <Card sx={{ maxWidth: 345, borderRadius: "20px", border: "2px solid", margin: "auto" }}>
+        <>
+        <div>
+            <h1>Projects</h1>
+        </div>
+        <Card sx={{ maxWidth: 345, borderRadius: "20px", border: "2px solid", margin: "2vh" }}>
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                     Name
@@ -18,9 +23,9 @@ export default function MediaCard() {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <Button style={{borderRadius: "20px", border: "2px solid", backgroundColor: ""}}><Link style={{textDecoration: "none"}}>Open</Link></Button>
             </CardActions>
         </Card>
+        </>
     );
 }
