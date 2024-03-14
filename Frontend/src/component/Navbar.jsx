@@ -22,7 +22,7 @@ const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
-
+    const {currentUser} =useAuth();
     const navigate = useNavigate()
     const { userLoggedIn } = useAuth()
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -143,7 +143,9 @@ function Navbar() {
                             userLoggedIn
                                 ?
                                 <>
-                                    <Button onClick={() => { doSignOut().then(() => {setIsSigningIn(false); navigate('/'); }) }} style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Logout</Button>
+                                <Avatar alt="Remy Sharp" src={currentUser.photoURL} />
+                                    <Button onClick={() => { doSignOut().then(() => { setIsSigningIn(false); navigate('/'); }) }} style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Logout</Button>
+                                    
                                 </>
                                 :
                                 <>
