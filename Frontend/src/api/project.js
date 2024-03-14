@@ -15,14 +15,13 @@ const db = getFirestore(app);
 export const addProject = async ({ userId, username, projName, projDesc }) => {
     try {
         const docRef = await addDoc(collection(db, "user-projects"), {
-            
             id: userId,
             user: username,
             projName: projName,
             projDesc: projDesc
         });
         
-        // console.log("Document written with ID: ", docRef.id);
+        //console.log("Document written with ID: ", docRef.id);
        
     } catch (e) {
         console.error("Error adding document: ", e);

@@ -30,10 +30,10 @@ const CreateProject = () => {
         e.preventDefault();
         try {
             await addProject({
-                userid: currentUser.uid,
+                userId: currentUser.uid,
                 username: currentUser.displayName, // Provide the username here
                 projName: credentials.name,
-                projdesc: credentials.details,
+                projDesc: credentials.details,
             });
             console.log("Project added successfully!");
             navi('/');

@@ -19,7 +19,7 @@ export default function Project() {
                 const userProjects = allProjects.filter(project => project.id === currentUser.uid); 
                 
                 setProjects(userProjects);
-               
+              // console.log(userProjects)
             } catch (error) {
                 console.error('Error fetching user projects:', error);
             }
@@ -49,8 +49,9 @@ export default function Project() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button style={{ borderRadius: '20px', backgroundColor: 'teal', margin: 'auto', display: "flex" }}>
-                                        <Link to={`/projdetails/${project.projid}`} style={{ textDecoration: 'none', color: 'white' }}>
+                                  
+                                    <Button style={{ borderRadius: '20px', backgroundColor: 'teal', marginLeft: '4rem' }}>
+                                        <Link to={`/projdetails/${project.id}`} style={{ textDecoration: 'none', color: 'white' }}>
                                             Open
                                         </Link>
                                     </Button>
