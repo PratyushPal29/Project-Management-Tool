@@ -23,7 +23,7 @@ function App() {
           <Route exact path='/createproject' element={<CreateProject />} />
           <Route exact path='/profilepage' element={<ProfilePage/>}/>
           <Route exact path='/project' element={<Project />} />
-          <Route exact path="/projdetails" element={<ProjDetails />} />
+          <Route exact path="/projdetails/:id" element={<ProjDetails />} />
         </Routes>
         <Footer />
       </Router>
