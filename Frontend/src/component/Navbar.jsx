@@ -12,7 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from "@mui/material";
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts'
 import { doSignOut } from '../firebase/auth'
 
@@ -78,29 +79,27 @@ function Navbar() {
                                 }}
                             >
                                 <MenuItem onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">Create Project+</Typography>
+                                    <Typography textAlign="center">
+                                        <Link href="/" style={{ color: "black", textDecoration: "none" }}>Home</Link>
+                                    </Typography>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
+                                        <Link href="/ProfilePage" style={{ color: "black", textDecoration: "none" }}>Dashboard</Link>
+                                    </Typography>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
+                                        <Link href="/createproject" style={{ color: "black", textDecoration: "none" }}>Create Project</Link>
+                                    </Typography>
+                                </MenuItem>
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
+                                        <Link href="/project" style={{ color: "black", textDecoration: "none" }}>Projects</Link>
+                                    </Typography>
                                 </MenuItem>
                             </Menu>
                         </Box>
-                        <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            component="a"
-                            href="#app-bar-with-responsive-menu"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'flex', md: 'none' },
-                                flexGrow: 1,
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            LOGO
-                        </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             <Button
                                 href="/"
@@ -132,22 +131,22 @@ function Navbar() {
                             </Button>
                         </Box>
                         {
-                userLoggedIn
-                    ?
-                    <>
-                        <Button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Logout</Button>
-                    </>
-                    :
-                    <>
-                        <Button href="/reg" style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Sign Up/Sign In</Button>
-                    </>
-            }
-                        
+                            userLoggedIn
+                                ?
+                                <>
+                                    <Button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Logout</Button>
+                                </>
+                                :
+                                <>
+                                    <Button href="/reg" style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Sign Up/Sign In</Button>
+                                </>
+                        }
+
                     </Toolbar>
                 </Container>
             </AppBar>
 
-            
+
         </>
     );
 }

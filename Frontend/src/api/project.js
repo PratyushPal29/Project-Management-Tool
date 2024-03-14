@@ -20,7 +20,6 @@ export const addProject = async ({username, projName, projdesc }) => {
             projName: projName,
             projdesc: projdesc
         });
-        console.log("Document written with ID: ", docRef.id);
     } catch (e) {
         console.error("Error adding document: ", e);
     }
