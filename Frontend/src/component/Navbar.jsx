@@ -59,27 +59,10 @@ function Navbar() {
                 }
 
             </nav>
-            <AppBar position="static">
-                <Container maxWidth="xl">
+            <AppBar position="static" style={{backgroundColor: "#111c34"}}>
+                <Container maxWidth="xl" >
                     <Toolbar disableGutters>
-                        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="#app-bar-with-responsive-menu"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'none', md: 'flex' },
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            LOGO
-                        </Typography>
+                        <img src="./mainlogo.png" alt="Logo" style={{ width: "12rem", height: "2rem", justifyContent: "space-between", marginBottom: "-50px", paddingRight: "2rem", marginTop: "-50px", marginLeft: "0px" }} />
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 size="large"
@@ -142,43 +125,14 @@ function Navbar() {
                                 Home
                             </Button>
                             <Button
+                                href="/createproject"
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                Create Group
+                                Create Project
                             </Button>
                         </Box>
-
-                        {/* <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box> */}
-                        <Button href="/#connect" style={{ borderRadius: "10px", backgroundColor: "white", height: "6vh", width: "20vh", color: "black", marginLeft: "-2rem" }}>Sign Up/Sign In</Button>
+                        <Button href="/reg" style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Sign Up/Sign In</Button>
                     </Toolbar>
                 </Container>
             </AppBar>
