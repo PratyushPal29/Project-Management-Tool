@@ -124,7 +124,18 @@ function Navbar() {
                                 Projects
                             </Button>
                         </Box>
+                        {
+                userLoggedIn
+                    ?
+                    <>
+                        <Button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Logout</Button>
+                    </>
+                    :
+                    <>
                         <Button href="/reg" style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Sign Up/Sign In</Button>
+                    </>
+            }
+                        
                     </Toolbar>
                 </Container>
             </AppBar>
