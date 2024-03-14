@@ -42,7 +42,7 @@ export default function ProfilePage() {
         </MDBRow>
 
         <MDBRow>
-          <MDBCol lg="4" style={{ backgroundImage: "linear-gradient(teal white)" }}>
+          <MDBCol lg="4" style={{ backgroundImage: "linear-gradient(teal white)"}}>
             <MDBCard className="mb-4">
               <MDBCardBody className="center" style={{  }}>
                 <MDBCardImage
@@ -84,34 +84,6 @@ export default function ProfilePage() {
                 <hr style={{height: "5px", background: "teal", border: "none" }}/>
               </MDBCardBody>
             </MDBCard>
-            <div style={{ display: "flex", marginLeft: "16rem" }}>
-              <Card sx={{ maxWidth: 345, borderRadius: "20px", border: "2px solid teal", margin: "5vh" }}>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Name
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" justifyContent='space-between'>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque quam officia porro quidem cum obcaecati velit corrupti repellat nostrum dolores nisi temporibus nobis illo, alias a. Libero esse minima distinctio?
-                  </Typography>
-                </CardContent>
-                <CardActions style={{ alignContent: "center" }}>
-                  <Button style={{ borderRadius: "20px", backgroundColor: "teal", marginLeft: "8rem" }}><Link style={{ textDecoration: "none", color: "white" }}>Open</Link></Button>
-                </CardActions>
-              </Card>
-              <Card sx={{ maxWidth: 345, borderRadius: "20px", border: "2px solid teal", margin: "5vh" }}>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Name
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" justifyContent='space-between'>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque quam officia porro quidem cum obcaecati velit corrupti repellat nostrum dolores nisi temporibus nobis illo, alias a. Libero esse minima distinctio?
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button style={{ borderRadius: "20px", backgroundColor: "teal", marginLeft: "8rem", marginBottom: "1rem" }}><Link to={"/projdetails"} style={{ textDecoration: "none", color: "white" }}>Open</Link></Button>
-                </CardActions>
-              </Card>
-            </div>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
