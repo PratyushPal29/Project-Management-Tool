@@ -16,6 +16,7 @@ import { Link } from "@mui/material";
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts'
 import { doSignOut } from '../firebase/auth'
+import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../firebase/auth'
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -26,7 +27,7 @@ function Navbar() {
     const { userLoggedIn } = useAuth()
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+    const [isSigningIn, setIsSigningIn] = React.useState(false)
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -42,7 +43,15 @@ function Navbar() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-
+    const onGoogleSignIn = (e) => {
+        e.preventDefault()
+        if (!isSigningIn) {
+            setIsSigningIn(true)
+            doSignInWithGoogle().catch(err => {
+                setIsSigningIn(false)
+            })
+        }
+    }
     return (
         <>
             <AppBar position="static" style={{ backgroundColor: "#111c34", height: "5rem" }}>
@@ -134,11 +143,11 @@ function Navbar() {
                             userLoggedIn
                                 ?
                                 <>
-                                    <Button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Logout</Button>
+                                    <Button onClick={() => { doSignOut().then(() => {setIsSigningIn(false); navigate('/'); }) }} style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Logout</Button>
                                 </>
                                 :
                                 <>
-                                    <Button href="/reg" style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Sign Up/Sign In</Button>
+                                    <Button href="/" onClick={(e) => { onGoogleSignIn(e) }} style={{ height: "6vh", width: "20vh", color: "white", marginLeft: "-2rem" }}>Sign Up/Sign In</Button>
                                 </>
                         }
 

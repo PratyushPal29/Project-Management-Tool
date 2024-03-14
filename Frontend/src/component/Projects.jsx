@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { getProject } from '../api/project'; // Update this path to your API file
-
+import { useAuth } from '../contexts'
 export default function Project() {
     const [projects, setProjects] = useState([]);
 
